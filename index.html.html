@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription - Cours Les Trois Fondements</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Noto+Sans:wght@400;600;700&display=swap');
+        *{margin:0;padding:0;box-sizing:border-box;}
+        body{font-family:'Noto Sans',sans-serif;background:linear-gradient(135deg,#2c1810 0%,#8b4513 50%,#2c1810 100%);min-height:100vh;display:flex;justify-content:center;align-items:center;padding:20px;}
+        .container{max-width:1200px;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:start;}
+        .affiche{background:white;border-radius:20px;box-shadow:0 20px 40px rgba(0,0,0,0.3);overflow:hidden;position:relative;}
+        .header{background:linear-gradient(135deg,#8b4513,#cd853f);color:white;padding:30px 20px;text-align:center;position:relative;}
+        .header::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="islamic" patternUnits="userSpaceOnUse" width="20" height="20"><circle cx="10" cy="10" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23islamic)"/></svg>');animation:float 20s linear infinite;opacity:0.3;}
+        @keyframes float{0%{transform:rotate(0deg);}100%{transform:rotate(360deg);}}
+        .titre-arabe{font-family:'Amiri',serif;font-size:2.2em;font-weight:700;margin-bottom:10px;text-shadow:2px 2px 4px rgba(0,0,0,0.3);position:relative;z-index:2;}
+        .titre-francais{font-size:1.3em;font-weight:600;opacity:0.95;position:relative;z-index:2;}
+        .contenu{padding:30px 25px;}
+        .section{margin-bottom:25px;}
+        .section-titre{color:#8b4513;font-size:1.1em;font-weight:700;margin-bottom:10px;display:flex;align-items:center;gap:8px;}
+        .icone{width:22px;height:22px;background:#cd853f;border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-weight:bold;font-size:12px;}
+        .info-box{background:#fef9f5;border-left:4px solid #cd853f;padding:15px;border-radius:8px;margin:10px 0;font-size:0.9em;}
+        .prix-section{background:linear-gradient(135deg,#8b4513,#cd853f);color:white;padding:20px;border-radius:15px;text-align:center;margin:15px 0;position:relative;overflow:hidden;}
+        .prix-section::before{content:'💎';position:absolute;top:15px;right:20px;font-size:30px;opacity:0.3;}
+        .prix-principal{font-size:2em;font-weight:700;margin:8px 0;}
+        .gratuite{background:#f4f0e8;border:2px dashed #cd853f;padding:15px;border-radius:10px;text-align:center;color:#8b4513;margin:10px 0;font-size:0.9em;}
+        .modalites-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0;}
+        .modalite-item{background:#fef9f5;padding:12px;border-radius:8px;text-align:center;border:1px solid #f0e6d2;font-size:0.85em;}
+        .modalite-titre{color:#8b4513;font-weight:700;font-size:0.95em;}
+        .badge{display:inline-block;background:#cd853f;color:white;padding:4px 10px;border-radius:15px;font-size:0.8em;font-weight:600;margin:3px;}
+        .contact-info{background:#8b4513;color:white;padding:20px;border-radius:15px;text-align:center;font-size:0.9em;}
+        .footer-islamique{text-align:center;padding:15px;background:#fef9f5;color:#8b4513;font-style:italic;border-top:2px solid #f0e6d2;font-size:0.9em;}
+        .formulaire{background:white;border-radius:20px;box-shadow:0 20px 40px rgba(0,0,0,0.3);padding:30px;position:sticky;top:20px;}
+        .form-header{background:linear-gradient(135deg,#8b4513,#cd853f);color:white;padding:20px;border-radius:15px;text-align:center;margin-bottom:25px;}
+        .form-group{margin-bottom:20px;}
+        .form-label{display:block;color:#8b4513;font-weight:600;margin-bottom:8px;font-size:0.95em;}
+        .form-input{width:100%;padding:12px;border:2px solid #f0e6d2;border-radius:8px;font-size:1em;transition:border-color 0.3s;}
+        .form-input:focus{outline:none;border-color:#cd853f;}
+        .form-select{width:100%;padding:12px;border:2px solid #f0e6d2;border-radius:8px;font-size:1em;background:white;cursor:pointer;}
+        .form-radio-group{display:flex;gap:15px;flex-wrap:wrap;}
+        .form-radio-item{display:flex;align-items:center;gap:6px;cursor:pointer;}
+        .form-radio{accent-color:#cd853f;}
+        .form-textarea{width:100%;padding:12px;border:2px solid #f0e6d2;border-radius:8px;font-size:1em;resize:vertical;min-height:80px;}
+        .btn-submit{width:100%;background:linear-gradient(135deg,#8b4513,#cd853f);color:white;padding:15px;border:none;border-radius:10px;font-size:1.1em;font-weight:600;cursor:pointer;transition:transform 0.3s;}
+        .btn-submit:hover{transform:translateY(-2px);}
+        .btn-submit:disabled{opacity:0.7;cursor:not-allowed;transform:none;}
+        .success-message{background:#d4edda;color:#155724;padding:15px;border-radius:10px;margin-top:15px;border:1px solid #c3e6cb;display:none;}
+        .netlify-info{background:#f4f0e8;padding:15px;border-radius:10px;margin-top:15px;text-align:center;color:#8b4513;font-size:0.9em;}
+        @media(max-width:768px){.container{grid-template-columns:1fr;gap:20px;}.form-radio-group{flex-direction:column;gap:10px;}}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="affiche">
+            <div class="header">
+                <div class="titre-arabe">ثَلاثَةُ الأُصُول</div>
+                <div class="titre-francais">Les Trois Fondements</div>
+            </div>
+            <div class="contenu">
+                <div class="section">
+                    <div class="section-titre"><div class="icone">🎓</div>Votre professeur</div>
+                    <div class="info-box">
+                        <div style="text-align:center;margin-bottom:10px;"><div style="font-family:'Amiri',serif;font-size:1.3em;color:#8b4513;font-weight:700;">أمين أبو حفصة</div></div>
+                        <div style="text-align:center;color:#666;font-size:0.9em;">Passionné des sciences religieuses<br><strong>Installé en Égypte depuis 2018</strong></div>
+                    </div>
+                </div>
+                <div class="section"><div class="section-titre"><div class="icone">📚</div>Cours de 'Aqîda Salafiyya</div><div class="info-box"><strong>Étudiez l'épître fondamentale de l'Imam Muhammad ibn 'Abd al-Wahhâb</strong><br>Apprentissage progressif et structuré selon la voie des Salafs as-Sâlih</div></div>
+                <div style="text-align:center;font-size:2em;color:#cd853f;margin:20px 0;">✦</div>
+                <div class="section"><div class="section-titre"><div class="icone">💰</div>Tarification</div>
+                    <div class="prix-section"><div style="font-size:1em;margin-bottom:8px;">Participation mensuelle</div><div class="prix-principal">30€</div><div style="font-size:1em;opacity:0.9;">Sans engagement</div></div>
+                    <div class="gratuite"><div style="font-size:1.1em;font-weight:700;margin-bottom:8px;">🤲 Gratuité possible</div><div>Pour les personnes motivées et sérieuses</div></div>
+                </div>
+                <div class="section"><div class="section-titre"><div class="icone">📱</div>Modalités des cours</div>
+                    <div class="modalites-grid">
+                        <div class="modalite-item"><div class="modalite-titre">📱 SUR TELEGRAM</div><div style="color:#666;margin-top:3px;">Audio en direct</div></div>
+                        <div class="modalite-item"><div class="modalite-titre">📹 ENREGISTRÉS</div><div style="color:#666;margin-top:3px;">Replay disponible</div></div>
+                        <div class="modalite-item"><div class="modalite-titre">⏰ 1H/SEMAINE</div><div style="color:#666;margin-top:3px;">Sam. ou Dim.</div></div>
+                        <div class="modalite-item"><div class="modalite-titre">🗣️ AU CHOIX</div><div style="color:#666;margin-top:3px;">FR ou AR</div></div>
+                    </div>
+                </div>
+                <div class="section"><div class="section-titre"><div class="icone">✨</div>Avantages</div>
+                    <div style="text-align:center;margin:10px 0;"><span class="badge">Pédagogie claire</span><span class="badge">Cours personnalisés</span><span class="badge">Suivi individuel</span><span class="badge">Horaires flexibles</span></div>
+                </div>
+            </div>
+            <div class="contact-info"><div style="font-size:1.2em;font-weight:700;margin-bottom:10px;">📞 Contact Direct</div><div style="margin:8px 0;">💬 @abuhafsacours</div><div style="font-size:0.85em;">📧 Hamin.nji@gmail.com</div></div>
+            <div class="footer-islamique"><div style="font-family:'Amiri',serif;font-size:1.2em;margin-bottom:5px;">وَقُل رَّبِّ زِدْنِي عِلْمًا</div><div style="font-size:0.85em;color:#666;">"Et dis : Ô mon Seigneur, accroît mes connaissances !"</div></div>
+        </div>
+        <div class="formulaire">
+            <div class="form-header"><h2 style="margin:0;font-size:1.4em;">📝 Inscription Automatique</h2><p style="margin:8px 0 0 0;opacity:0.9;font-size:0.95em;">Notification immédiate au professeur</p></div>
+            <form name="inscriptions-cours" method="POST" data-netlify="true" data-netlify-recaptcha="true" id="inscriptionForm">
+                <input type="hidden" name="form-name" value="inscriptions-cours">
+                <input type="hidden" name="bot-field">
+                <div class="form-group"><label class="form-label">👤 Nom complet *</label><input type="text" class="form-input" name="nom" required placeholder="Votre nom et prénom"></div>
+                <div class="form-group"><label class="form-label">📧 Email *</label><input type="email" class="form-input" name="email" required placeholder="votre@email.com"></div>
+                <div class="form-group"><label class="form-label">📱 Telegram (username) *</label><input type="text" class="form-input" name="telegram" required placeholder="@votre_username"></div>
+                <div class="form-group"><label class="form-label">🗣️ Langue préférée *</label><div class="form-radio-group"><div class="form-radio-item"><input type="radio" class="form-radio" name="langue" value="Français" id="francais" required><label for="francais">Français</label></div><div class="form-radio-item"><input type="radio" class="form-radio" name="langue" value="100% Arabe" id="arabe" required><label for="arabe">100% Arabe</label></div></div></div>
+                <div class="form-group"><label class="form-label">📚 Votre niveau actuel *</label><select class="form-select" name="niveau" required><option value="">Choisissez votre niveau</option><option value="Débutant complet">Débutant complet</option><option value="Quelques notions">Quelques notions</option><option value="Niveau intermédiaire">Niveau intermédiaire</option><option value="Niveau avancé">Niveau avancé</option></select></div>
+                <div class="form-group"><label class="form-label">📅 Jour préféré *</label><div class="form-radio-group"><div class="form-radio-item"><input type="radio" class="form-radio" name="jour" value="Samedi" id="samedi" required><label for="samedi">Samedi</label></div><div class="form-radio-item"><input type="radio" class="form-radio" name="jour" value="Dimanche" id="dimanche" required><label for="dimanche">Dimanche</label></div></div></div>
+                <div class="form-group"><label class="form-label">⏰ Heure préférée *</label><select class="form-select" name="heure" required><option value="">Choisissez votre horaire</option><option value="08h00 - 09h00">08h00 - 09h00</option>
+<option value="09h00 - 10h00">09h00 - 10h00</option>
+<option value="10h00 - 11h00">10h00 - 11h00</option>
+<option value="11h00 - 12h00">11h00 - 12h00</option>
+<option value="12h00 - 13h00">12h00 - 13h00</option>
+<option value="13h00 - 14h00">13h00 - 14h00</option>
+<option value="14h00 - 15h00">14h00 - 15h00</option>
+<option value="15h00 - 16h00">15h00 - 16h00</option>
+<option value="16h00 - 17h00">16h00 - 17h00</option>
+<option value="17h00 - 18h00">17h00 - 18h00</option>
+<option value="18h00 - 19h00">18h00 - 19h00</option>
+<option value="19h00 - 20h00">19h00 - 20h00</option>
+<option value="20h00 - 21h00">20h00 - 21h00</option>
+<option value="21h00 - 22h00">21h00 - 22h00</option>
+<option value="22h00 - 23h00">22h00 - 23h00</option></select></div>
+                <div class="form-group"><label class="form-label">💰 Situation financière *</label><div class="form-radio-group"><div class="form-radio-item"><input type="radio" class="form-radio" name="tarif" value="30€/mois" id="payant" required><label for="payant">30€/mois</label></div><div class="form-radio-item"><input type="radio" class="form-radio" name="tarif" value="Demande de gratuité" id="gratuit" required><label for="gratuit">Demande de gratuité</label></div></div></div>
+                <div class="form-group"><label class="form-label">💭 Message (optionnel)</label><textarea class="form-textarea" name="message" placeholder="Vos questions, motivations, ou commentaires..."></textarea></div>
+                <div data-netlify-recaptcha="true" style="margin:20px 0;"></div>
+                <button type="submit" class="btn-submit" id="submitBtn">🚀 S'inscrire aux cours</button>
+                <div class="success-message" id="successMessage">✅ <strong>Inscription envoyée avec succès !</strong><br>Le professeur a été notifié automatiquement et vous contactera bientôt sur Telegram.</div>
+            </form>
+            <div class="netlify-info"><strong>📧 Notification automatique :</strong><br>Dès votre inscription, le professeur reçoit un email avec vos informations et vous contactera rapidement.</div>
+        </div>
+    </div>
+    <script>
+        document.getElementById('inscriptionForm').addEventListener('submit',function(e){
+            const submitBtn=document.getElementById('submitBtn');
+            const successMessage=document.getElementById('successMessage');
+            submitBtn.disabled=true;
+            submitBtn.textContent='⏳ Envoi en cours...';
+            setTimeout(()=>{successMessage.style.display='block';submitBtn.style.display='none';setTimeout(()=>{window.open('https://t.me/abuhafsacours','_blank');},3000);},1000);
+        });
+    </script>
+</body>
+</html>
